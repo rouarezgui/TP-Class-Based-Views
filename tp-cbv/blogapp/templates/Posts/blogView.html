@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des articles</title>
+</head>
+<body>
+    <h1>Liste des articles du blog</h1>
+
+    {% for post in posts %}
+        <article>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p>Auteur : {{ post.author }}</p>
+            <p>Date : {{ post.created_on|default:"Non renseignée" }}</p>
+            <hr>
+        </article>
+    {% empty %}
+        <p>Aucun article disponible pour le moment.</p>
+    {% endfor %}
+</body>
+</html>
